@@ -11,7 +11,7 @@ from setuptools import setup
 setup(
     name='Flask-HTMLmin',
     version='1.0',
-    url='http://example.com/flask-sqlite3/',
+    url='https://github.com/hamidfzm/Flask-HTMLmin',
     license='BSD',
     author='Hamid FzM',
     author_email='hamidfzm@gmail.com',
