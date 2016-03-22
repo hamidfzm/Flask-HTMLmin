@@ -22,9 +22,13 @@ Example
 -------
 
     from flask import Flask, render_template
+    from flask.ext.htmlmin import HTMLMIN
     
     app = Flask(__name__)
     app.config['MINIFY_PAGE'] = True
+    
+    HTMLMIN(app)
+    # or you can use HTMLMIN.init_app(app)
     
     @app.route('/')
     def main():
