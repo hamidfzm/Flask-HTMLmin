@@ -1,4 +1,4 @@
-from htmlmin.main import minify
+from htmlmin import Minifier
 
 __author__ = 'Hamid FzM'
 
@@ -20,10 +20,14 @@ class HTMLMIN(object):
         """
         minify response html to decrease traffic
         """
+        html_minify = Minifier(
+            remove_comments=True,
+            reduce_empty_attributes=True,
+            remove_optional_attribute_quotes=False)
+
         if response.content_type == u'text/html; charset=utf-8':
             response.set_data(
-                minify(response.get_data(as_text=True),
-                       remove_comments=True, reduce_empty_attributes=True, remove_optional_attribute_quotes=False)
+                html_minify(response.get_data(as_text=True))
             )
 
             return response
