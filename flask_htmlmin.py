@@ -27,7 +27,7 @@ class HTMLMIN(object):
 
         if response.content_type == u'text/html; charset=utf-8':
             response.set_data(
-                html_minify(response.get_data(as_text=True))
+                html_minify.minify(response.get_data(as_text=True))
             )
 
             return response
