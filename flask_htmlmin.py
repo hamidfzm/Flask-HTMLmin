@@ -9,25 +9,24 @@ class HTMLMIN(object):
         if app is not None:
             self.init_app(app)
 
+        self.html_minify = Minifier(
+            remove_comments=True,
+            reduce_empty_attributes=True,
+            remove_optional_attribute_quotes=False)
+
     def init_app(self, app):
         app.config.setdefault('MINIFY_PAGE', False)
 
         if app.config['MINIFY_PAGE']:
             app.after_request(self.response_minify)
 
-    @staticmethod
-    def response_minify(response):
+    def response_minify(self, response):
         """
         minify response html to decrease traffic
         """
-        html_minify = Minifier(
-            remove_comments=True,
-            reduce_empty_attributes=True,
-            remove_optional_attribute_quotes=False)
-
         if response.content_type == u'text/html; charset=utf-8':
             response.set_data(
-                html_minify.minify(response.get_data(as_text=True))
+                self.html_minify.minify(response.get_data(as_text=True))
             )
 
             return response
