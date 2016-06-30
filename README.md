@@ -7,11 +7,11 @@ Just add `MINIFY_PAGE = True` to your deployment config to minify html and text 
 
 Installation
 ------------
-To install Flask-HTMLmin, simply::
+To install Flask-HTMLmin, simply:
 
     pip install Flask-HTMLmin
 
-Or alternatively, you can download the repository and install manually by doing::
+Or alternatively, you can download the repository and install manually by doing:
 
     git clone git@github.com:hamidfzm/Flask-HTMLmin.git
     cd Flask-HTMLmin
