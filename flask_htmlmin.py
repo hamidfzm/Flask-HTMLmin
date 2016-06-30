@@ -20,8 +20,8 @@ class HTMLMIN(object):
         """
         minify response html to decrease traffic
         """
-        response.direct_passthrough = False
         if response.content_type == u'text/html; charset=utf-8':
+            response.direct_passthrough = False
             response.set_data(
                 minify(response.get_data(as_text=True),
                        remove_comments=True, reduce_empty_attributes=True, remove_optional_attribute_quotes=False)
