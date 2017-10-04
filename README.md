@@ -29,6 +29,8 @@ Example
     
     HTMLMIN(app)
     # or you can use HTMLMIN.init_app(app)
+    # pass additional parameters to htmlmin
+    # HTMLMIN(app, **kwargs)
     
     @app.route('/')
     def main():

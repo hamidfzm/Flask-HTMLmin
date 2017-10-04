@@ -4,7 +4,7 @@ __author__ = 'Hamid FzM'
 
 
 class HTMLMIN(object):
-    def __init__(self, app=None):
+    def __init__(self, app=None, **kwargs):
         self.app = app
         if app is not None:
             self.init_app(app)
@@ -12,7 +12,8 @@ class HTMLMIN(object):
         self.html_minify = Minifier(
             remove_comments=True,
             reduce_empty_attributes=True,
-            remove_optional_attribute_quotes=False)
+            remove_optional_attribute_quotes=False,
+            **kwargs)
 
     def init_app(self, app):
         app.config.setdefault('MINIFY_PAGE', False)
