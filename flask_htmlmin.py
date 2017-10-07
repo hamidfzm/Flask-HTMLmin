@@ -9,11 +9,15 @@ class HTMLMIN(object):
         if app is not None:
             self.init_app(app)
 
+        default_options = {
+            'remove_comments': True,
+            'reduce_empty_attributes': True,
+            'remove_optional_attribute_quotes': False
+        }
+        default_options.update(kwargs)
+
         self.html_minify = Minifier(
-            remove_comments=True,
-            reduce_empty_attributes=True,
-            remove_optional_attribute_quotes=False,
-            **kwargs)
+            **default_options)
 
     def init_app(self, app):
         app.config.setdefault('MINIFY_PAGE', False)
