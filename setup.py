@@ -10,7 +10,7 @@ from setuptools import setup
 
 setup(
     name='Flask-HTMLmin',
-    version='1.3.0',
+    version='1.3.1',
     url='https://github.com/hamidfzm/Flask-HTMLmin',
     license='BSD',
     author='Hamid FzM',
