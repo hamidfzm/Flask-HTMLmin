@@ -1,4 +1,6 @@
+import logging
 from htmlmin import Minifier
+from htmlmin.parser import OpenTagNotFoundError
 
 __author__ = 'Hamid FzM'
 
@@ -31,9 +33,13 @@ class HTMLMIN(object):
         """
         if response.content_type == u'text/html; charset=utf-8':
             response.direct_passthrough = False
-            response.set_data(
-                self.html_minify.minify(response.get_data(as_text=True))
-            )
+            data = response.get_data(as_text=True)
+            try:
+                minified = self.html_minify.minify(data)
+            except OpenTagNotFoundError:
+                minified = data
+                logging.error('Could not minify data: OpenTagNotFoundError')
+            response.set_data(minified)
 
             return response
         return response
