@@ -39,3 +39,8 @@ Example
     
     if __name__ == '__main__':
         app.run()
+        
+TODO
+----
+[ ] Test cases
+[ ] Route (or URL rule) exemption
