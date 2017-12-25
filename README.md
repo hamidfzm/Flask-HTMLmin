@@ -42,5 +42,5 @@ Example
         
 TODO
 ----
-[ ] Test cases
-[ ] Route (or URL rule) exemption
+- [ ] Test cases
+- [ ] Route (or URL rule) exemption
