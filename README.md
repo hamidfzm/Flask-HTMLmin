@@ -22,7 +22,7 @@ Example
 -------
 
     from flask import Flask, render_template
-    from flask.ext_htmlmin import HTMLMIN
+    from flask.ext.htmlmin import HTMLMIN
     
     app = Flask(__name__)
     app.config['MINIFY_PAGE'] = True
