@@ -12,7 +12,7 @@ setup(
     name='Flask-HTMLmin',
     version='1.3.1',
     url='https://github.com/hamidfzm/Flask-HTMLmin',
-    license='BSD',
+    license='BSD-3-Clause',
     author='Hamid FzM',
     author_email='hamidfzm@gmail.com',
     description='Minimize render templates html',
