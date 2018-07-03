@@ -20,7 +20,7 @@ Or alternatively, you can download the repository and install manually by doing:
 
 Example
 -------
-
+```python
     from flask import Flask, render_template
     from flask_htmlmin import HTMLMIN
     
@@ -39,8 +39,9 @@ Example
     
     if __name__ == '__main__':
         app.run()
-        
+```
+
 TODO
 ----
-- [ ] Test cases
+- [x] Test cases
 - [ ] Route (or URL rule) exemption

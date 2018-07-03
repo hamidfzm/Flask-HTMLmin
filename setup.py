@@ -17,7 +17,8 @@ setup(
     author_email='hamidfzm@gmail.com',
     description='Minimize render templates html',
     long_description=__doc__,
-    py_modules=['flask_htmlmin'],
+    py_modules=['HTMLMIN'],
+    packages=['flask_htmlmin'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
@@ -36,5 +37,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing :: Markup :: HTML',
-    ]
+    ],
+    setup_requires=['pytest-runner'],
+    test_requires=['pytest']
 )
