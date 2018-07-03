@@ -36,7 +36,7 @@ def client():
 
 def test_html_minify(client):
     """ testing HTML minified response """
-    resp = client.get('/').data111
+    resp = client.get('/').data
     assert b'<html> <body> <h1> HTML </h1> </body> </html>' == resp
 
 def test_json_unminifed(client):
