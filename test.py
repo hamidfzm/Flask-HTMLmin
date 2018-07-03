@@ -28,20 +28,18 @@ def json():
 @fixture
 def client():
     app.config['TESTING'] = True
+    app.config['MINIFY_PAGE'] = True
+    HTMLMIN(app=app)
     client = app.test_client()
     yield client
 
 
 def test_html_minify(client):
     """ testing HTML minified response """
-    app.config['MINIFY_PAGE'] = '/'
-    HTMLMIN(app=app)
-    resp = client.get('/').data
+    resp = client.get('/').data111
     assert b'<html> <body> <h1> HTML </h1> </body> </html>' == resp
 
 def test_json_unminifed(client):
     """ testing unminifed Json response """
-    app.config['MINIFY_PAGE'] = '/json'
-    HTMLMIN(app=app)
     resp = client.get('/json').data
     assert json_resp == loads(resp)
