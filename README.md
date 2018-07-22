@@ -1,5 +1,8 @@
+
 Flask-HTMLmin
 =============
+[![Build Status](https://travis-ci.org/hamidfzm/Flask-HTMLmin.svg?branch=master)](https://travis-ci.org/hamidfzm/Flask-HTMLmin)
+[![Coverage Status](https://coveralls.io/repos/github/hamidfzm/Flask-HTMLmin/badge.svg?branch=master)](https://coveralls.io/github/hamidfzm/Flask-HTMLmin?branch=master)
 
 Minify flask `text/html` mime types responses.
 Just add `MINIFY_PAGE = True` to your deployment config to minify html and text responses of your flask application.
