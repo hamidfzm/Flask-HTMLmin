@@ -11,6 +11,6 @@ python:
 # command to install dependencies
 install:
   - python setup.py install
-  - pip install pytest-runner pytest python-cov
+  - pip install pytest-runner pytest pytest-cov
 # command to run tests
 script: python setup.py test
