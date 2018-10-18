@@ -48,3 +48,6 @@ TODO
 ----
 - [x] Test cases
 - [ ] Route (or URL rule) exemption
+- [ ] Caching
+- [ ] Minify inline CSS
+- [ ] Minify inline Javascript
