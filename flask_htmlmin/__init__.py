@@ -1,6 +1,6 @@
+from functools import wraps
 from htmlmin import Minifier
-
-__author__ = 'Hamid FzM'
+from flask import request, current_app
 
 
 class HTMLMIN(object):
@@ -16,7 +16,8 @@ class HTMLMIN(object):
         }
         default_options.update(kwargs)
 
-        self.html_minify = Minifier(
+        self._exempt_routes = set()
+        self._html_minify = Minifier(
             **default_options)
 
     def init_app(self, app):
@@ -29,11 +30,34 @@ class HTMLMIN(object):
         """
         minify response html to decrease traffic
         """
+
         if response.content_type == u'text/html; charset=utf-8':
+            endpoint = request.endpoint or ''
+            view_func = current_app.view_functions.get(endpoint, None)
+            name = (
+                '%s.%s' % (view_func.__module__, view_func.__name__)
+                if view_func else ''
+            )
+            if name in self._exempt_routes:
+                return response
+
             response.direct_passthrough = False
             response.set_data(
-                self.html_minify.minify(response.get_data(as_text=True))
+                self._html_minify.minify(response.get_data(as_text=True))
             )
 
             return response
         return response
+
+    def exempt(self, obj):
+        """
+        decorator to mark a view as exempt from htmlmin.
+        """
+        name = '%s.%s' % (obj.__module__, obj.__name__)
+
+        @wraps(obj)
+        def __inner(*a, **k):
+            return obj(*a, **k)
+
+        self._exempt_routes.add(name)
+        return __inner
