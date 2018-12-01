@@ -1,13 +1,14 @@
 
 Flask-HTMLmin
 =============
-![PyPI - Python Version](https://img.shields.io/badge/python-2.7%20%7C%203.6%20%7C%203.7-blue.svg)
+[![PyPi Package](https://img.shields.io/badge/pypi-v1.5.0-blue.svg)](https://pypi.org/project/Flask-HTMLmin/)
+![Supported Python Versions](https://img.shields.io/badge/python-2.7%20%7C%203.6%20%7C%203.7-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/hamidfzm/Flask-HTMLmin.svg?branch=master)](https://travis-ci.org/hamidfzm/Flask-HTMLmin)
 [![Coverage Status](https://coveralls.io/repos/github/hamidfzm/Flask-HTMLmin/badge.svg?branch=master)](https://coveralls.io/github/hamidfzm/Flask-HTMLmin?branch=master)
 
-Minify flask `text/html` mime types responses.
-Just add `MINIFY_PAGE = True` to your deployment config to minify html and text responses of your flask application.
+Minify flask `text/html` mime type responses.
+Just add `MINIFY_PAGE = True` to your deployment config to minify HTML and text responses of your flask application.
 
 
 Installation
@@ -15,6 +16,10 @@ Installation
 To install Flask-HTMLmin, simply:
 
     pip install Flask-HTMLmin
+
+Or use pipenv (recommended):
+
+    pipenv install Flask-HTMLmin
 
 Or alternatively, you can download the repository and install manually by doing:
 
