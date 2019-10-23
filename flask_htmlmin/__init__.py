@@ -1,6 +1,7 @@
 from functools import wraps
 from htmlmin import Minifier
 from flask import request, current_app
+import warnings
 
 
 class HTMLMIN(object):
@@ -21,9 +22,12 @@ class HTMLMIN(object):
             **default_options)
 
     def init_app(self, app):
-        app.config.setdefault('MINIFY_PAGE', False)
+        app.config.setdefault('MINIFY_HTML', False)
+        if 'MINIFY_PAGE' in app.config:
+            app.config.setdefault('MINIFY_HTML', app.config['MINIFY_PAGE'])
+            warnings.warn('MINIFY_PAGE is deprecated, use MINIFY_HTML instead', DeprecationWarning, stacklevel=2)
 
-        if app.config['MINIFY_PAGE']:
+        if app.config['MINIFY_HTML']:
             app.after_request(self.response_minify)
 
     def response_minify(self, response):
