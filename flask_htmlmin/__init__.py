@@ -23,8 +23,9 @@ class HTMLMIN(object):
 
     def init_app(self, app):
         app.config.setdefault('MINIFY_HTML', False)
+
         if 'MINIFY_PAGE' in app.config:
-            app.config.setdefault('MINIFY_HTML', app.config['MINIFY_PAGE'])
+            app.config['MINIFY_HTML'] = app.config['MINIFY_PAGE']
             warnings.warn('MINIFY_PAGE is deprecated, use MINIFY_HTML instead', DeprecationWarning, stacklevel=2)
 
         if app.config['MINIFY_HTML']:

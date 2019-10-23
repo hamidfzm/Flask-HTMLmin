@@ -2,13 +2,13 @@
 Flask-HTMLmin
 =============
 [![PyPi Package](https://img.shields.io/badge/pypi-v1.5.0-blue.svg)](https://pypi.org/project/Flask-HTMLmin/)
-![Supported Python Versions](https://img.shields.io/badge/python-2.7%20%7C%203.6%20%7C%203.7-blue.svg)
+![Supported Python Versions](https://img.shields.io/badge/python-2.7%20%7C%203.6%20%7C%203.7%20%7C%203.8-blue.svg)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/hamidfzm/Flask-HTMLmin.svg?branch=master)](https://travis-ci.org/hamidfzm/Flask-HTMLmin)
 [![Coverage Status](https://coveralls.io/repos/github/hamidfzm/Flask-HTMLmin/badge.svg?branch=master)](https://coveralls.io/github/hamidfzm/Flask-HTMLmin?branch=master)
 
 Minify flask `text/html` mime type responses.
-Just add `MINIFY_PAGE = True` to your deployment config to minify HTML and text responses of your flask application.
+Just add `MINIFY_HTML = True` to your deployment config to minify HTML and text responses of your flask application.
 
 
 Installation
@@ -35,7 +35,7 @@ from flask import Flask, render_template
 from flask_htmlmin import HTMLMIN
     
 app = Flask(__name__)
-app.config['MINIFY_PAGE'] = True
+app.config['MINIFY_HTML'] = True
 
 htmlmin = HTMLMIN(app)
 # or you can use HTMLMIN.init_app(app)
@@ -63,6 +63,6 @@ TODO
 ----
 - [x] Test cases
 - [x] Route (or URL rule) exemption
-- [ ] Caching
+- [x] Caching (in progress)
 - [ ] Minify inline CSS
 - [ ] Minify inline Javascript
