@@ -63,4 +63,4 @@ def test_exempt_routes(client):
 
     assert resp == html_resp.encode()
 
-    
+
