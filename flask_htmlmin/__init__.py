@@ -47,9 +47,13 @@ class HTMLMIN(object):
                 return response
 
             response.direct_passthrough = False
-            response.set_data(
-                self._html_minify.minify(response.get_data(as_text=True))
-            )
+            try:
+                response.set_data(
+                    self._html_minify.minify(response.get_data(as_text=True))
+                )
+            except AssertionError as e:
+                warnings.warn(f'HTML parsing error, may be worth investigating cause. Message {str(e)}.', UserWarning, stacklevel=2)
+                pass
 
             return response
         return response
