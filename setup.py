@@ -4,23 +4,26 @@
 Flask-HTMLmin
 -------------
 
-minimize your flask rendered html
+Minify flask text/html mime type responses
 """
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
+from os import path
+
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='Flask-HTMLmin',
-    version='1.5.2',
+    version='2.0.0',
     url='https://github.com/hamidfzm/Flask-HTMLmin',
     license='BSD-3-Clause',
     author='Hamid FzM',
     author_email='hamidfzm@gmail.com',
-    description='Minimize render templates html',
-    long_description=__doc__,
+    description=__doc__,
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     py_modules=['HTMLMIN'],
     packages=['flask_htmlmin'],
     zip_safe=False,
@@ -30,19 +33,17 @@ setup(
         'Flask',
         'htmlmin'
     ],
+    python_requires='>=3.6',
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing :: Markup :: HTML',
