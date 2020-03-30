@@ -8,20 +8,18 @@ Minify flask text/html mime type responses
 """
 
 from setuptools import setup
-from os import path
 
-this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
+with open('README.md', 'r') as fh:
+    long_description = fh.read()
 
 setup(
     name='Flask-HTMLmin',
-    version='2.0.2',
+    version='2.0.3',
     url='https://github.com/hamidfzm/Flask-HTMLmin',
     license='BSD-3-Clause',
     author='Hamid FzM',
     author_email='hamidfzm@gmail.com',
-    description=__doc__,
+    description="Minify flask text/html mime type responses",
     long_description=long_description,
     long_description_content_type='text/markdown',
     py_modules=['HTMLMIN'],
