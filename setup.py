@@ -16,7 +16,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='Flask-HTMLmin',
-    version='2.0.1',
+    version='2.0.2',
     url='https://github.com/hamidfzm/Flask-HTMLmin',
     license='BSD-3-Clause',
     author='Hamid FzM',
