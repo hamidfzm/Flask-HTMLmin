@@ -6,8 +6,10 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 pytest-runner = "*"
-pytest-cov = "*"
-python-coveralls = "*"
+twine = "*"
+wheel = "*"
+flake8 = "*"
+coverage = "*"
 
 [packages]
 flask = "*"
