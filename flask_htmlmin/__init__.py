@@ -26,7 +26,11 @@ class HTMLMIN(object):
 
         if 'MINIFY_PAGE' in app.config:
             app.config['MINIFY_HTML'] = app.config['MINIFY_PAGE']
-            warnings.warn('MINIFY_PAGE is deprecated, use MINIFY_HTML instead', DeprecationWarning, stacklevel=2)
+            warnings.warn(
+                'MINIFY_PAGE is deprecated, use MINIFY_HTML instead',
+                DeprecationWarning,
+                stacklevel=2
+            )
 
         if app.config['MINIFY_HTML']:
             app.after_request(self.response_minify)

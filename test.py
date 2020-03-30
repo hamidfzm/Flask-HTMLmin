@@ -62,5 +62,3 @@ def test_exempt_routes(client):
     resp = client.get('/exempt').data
 
     assert resp == html_resp.encode()
-
-
