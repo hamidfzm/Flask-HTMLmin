@@ -11,7 +11,7 @@ app.config['MINIFY_PAGE'] = True
 htmlmin = HTMLMIN(app=app)
 
 json_resp = dict(
-    resp='some unminifed json response'
+    resp='some unminified json response'
 )
 
 html_resp = '''<html>
@@ -52,7 +52,7 @@ def test_html_minify(client):
 
 
 def test_json_unminifed(client):
-    """ testing unminifed Json response """
+    """ testing unminified Json response """
     resp = client.get('/json').data
     assert json_resp == loads(resp)
 
