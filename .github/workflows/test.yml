@@ -34,11 +34,10 @@ jobs:
         run: |
           pip install coverage
           coverage run --source=flask_htmlmin setup.py test
+          coverage xml
 
-      - name: Upload to Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
 
       - name: Publish distribution 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@master
