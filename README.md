@@ -41,6 +41,9 @@ htmlmin = HTMLMIN(app)
 # or you can use HTMLMIN.init_app(app)
 # pass additional parameters to htmlmin
 # HTMLMIN(app, **kwargs)
+# example:
+# htmlmin = HTMLMIN(app, remove_comments=False, remove_empty_space=True)
+
 
 @app.route('/')
 def main():
