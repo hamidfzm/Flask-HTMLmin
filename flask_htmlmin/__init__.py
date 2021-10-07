@@ -88,7 +88,7 @@ class HTMLMIN(object):
             j = out[i:].find("style=")+7
             k = out[i+j:].find('"')
             css = out[i+j:i+j+k+1]
-            out2 += out[0:i+j] + re.sub(";\s*[\"|\']", "", self.min_css(css),
+            out2 += out[0:i+j] + re.sub(";+\s*(?=(\"|\'))", "", self.min_css(css),
              re.I|re.M)
             out = out[i+j+k+1:]
         out2 += out
