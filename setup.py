@@ -29,7 +29,8 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
-        'htmlmin'
+        'htmlmin',
+        'cssmin'
     ],
     python_requires='>=3.6',
     classifiers=[
