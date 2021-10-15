@@ -15,7 +15,8 @@ class HTMLMIN(object):
         default_options = {
             'remove_comments': True,
             'reduce_empty_attributes': True,
-            'remove_optional_attribute_quotes': False
+            'remove_optional_attribute_quotes': False,
+            'disable_css_min':False
         }
         default_options.update(kwargs)
         self.opts = default_options
@@ -54,14 +55,19 @@ class HTMLMIN(object):
                 return response
 
             response.direct_passthrough = False
-            response.set_data(
-                self.css_minify(self._html_minify.minify(response.get_data(as_text=True)))
-            )
+            if self.opts.get('disable_css_min'):
+                response.set_data(
+                    self._html_minify.minify(response.get_data(as_text=True))
+                )
+            else:
+                response.set_data(
+                    self._css_minify(self._html_minify.minify(response.get_data(as_text=True)))
+                )
 
             return response
         return response
 
-    def css_minify(self, response):
+    def _css_minify(self, response):
         """
             Minify inline css
         """
@@ -75,7 +81,7 @@ class HTMLMIN(object):
             i = text.find(tag)+len(tag)-1
             e = text.find("</style>")+9
             css = text[i:e]
-            out += text[0:i] + self.min_css(css)
+            out += text[0:i] + self._min_css(css)
             text = text[e:]
         out = out+text
 
@@ -88,13 +94,13 @@ class HTMLMIN(object):
             j = out[i:].find("style=")+7
             k = out[i+j:].find('"')
             css = out[i+j:i+j+k+1]
-            out2 += out[0:i+j] + re.sub(";+\s*(?=(\"|\'))", "", self.min_css(css),
+            out2 += out[0:i+j] + re.sub(";+\s*(?=(\"|\'))", "", self._min_css(css),
              re.I|re.M)
             out = out[i+j+k+1:]
         out2 += out
         return out2
     
-    def min_css(self, css):
+    def _min_css(self, css):
         if self.opts.get("remove_comments"):
             css = cssmin.remove_comments(css)
         css = cssmin.condense_whitespace(css)
