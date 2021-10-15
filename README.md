@@ -46,7 +46,7 @@ htmlmin = HTMLMIN(app)
 # pass additional parameters to htmlmin
 # HTMLMIN(app, **kwargs)
 # example:
-# htmlmin = HTMLMIN(app, remove_comments=False, remove_empty_space=True)
+# htmlmin = HTMLMIN(app, remove_comments=False, remove_empty_space=True, disable_css_min=True)
 
 
 @app.route('/')
