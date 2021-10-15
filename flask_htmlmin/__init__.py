@@ -5,7 +5,6 @@ import warnings
 import cssmin
 import re
 
-
 class HTMLMIN(object):
     def __init__(self, app=None, **kwargs):
         self.app = app
@@ -77,7 +76,6 @@ class HTMLMIN(object):
         text = response
         opening_tags = re.findall(r"<style\s*[^>]*>", text, re.M|re.I)
         for tag in opening_tags:
-
             i = text.find(tag)+len(tag)-1
             e = text.find("</style>")+9
             css = text[i:e]
