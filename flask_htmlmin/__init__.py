@@ -5,6 +5,7 @@ import warnings
 import cssmin
 import re
 
+
 class HTMLMIN(object):
     def __init__(self, app=None, **kwargs):
         self.app = app
@@ -15,7 +16,7 @@ class HTMLMIN(object):
             'remove_comments': True,
             'reduce_empty_attributes': True,
             'remove_optional_attribute_quotes': False,
-            'disable_css_min':False
+            'disable_css_min': False
         }
         default_options.update(kwargs)
         self.opts = default_options
@@ -60,7 +61,11 @@ class HTMLMIN(object):
                 )
             else:
                 response.set_data(
-                    self._css_minify(self._html_minify.minify(response.get_data(as_text=True)))
+                    self._css_minify(
+                      self._html_minify.minify(
+                           response.get_data(as_text=True)
+                       )
+                     )
                 )
 
             return response
@@ -74,7 +79,7 @@ class HTMLMIN(object):
         # Minify internal css
         out = ''
         text = response
-        opening_tags = re.findall(r"<style\s*[^>]*>", text, re.M|re.I)
+        opening_tags = re.findall(r"<style\s*[^>]*>", text, re.M | re.I)
         for tag in opening_tags:
             i = text.find(tag)+len(tag)-1
             e = text.find("</style>")+9
@@ -85,19 +90,19 @@ class HTMLMIN(object):
 
         # Minify inline css
         out2 = ''
-        inlines = re.findall(r"<[A-Za-z0-9-]+[^>]+?style=\"[\s\S]+?\"", 
-            out,  re.M|re.I)
+        inlines = re.findall(r"<[A-Za-z0-9-]+[^>]+?style=\"[\s\S]+?\"",
+                             out,  re.M | re.I)
         for inline in inlines:
             i = out.find(inline)
             j = out[i:].find("style=")+7
             k = out[i+j:].find('"')
             css = out[i+j:i+j+k+1]
-            out2 += out[0:i+j] + re.sub(";+\s*(?=(\"|\'))", "", self._min_css(css),
-             re.I|re.M)
+            out2 += out[0:i+j] + re.sub(r";+\s*(?=(\"|\'))", "",
+                                        self._min_css(css), re.I | re.M)
             out = out[i+j+k+1:]
         out2 += out
         return out2
-    
+
     def _min_css(self, css):
         if self.opts.get("remove_comments"):
             css = cssmin.remove_comments(css)
