@@ -71,6 +71,6 @@ TODO
 - [x] Test cases
 - [x] Route (or URL rule) exemption
 - [x] Caching (in progress)
-- [In progress] Minify inline CSS
+- [x] Minify inline CSS
 - [ ] Minify inline Javascript
 - [ ] Type hints

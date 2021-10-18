@@ -7,7 +7,7 @@ from flask_htmlmin import HTMLMIN
 
 app = Flask(__name__)
 app.config['TESTING'] = True
-app.config['MINIFY_PAGE'] = True
+app.config['MINIFY_HTML'] = True
 htmlmin = HTMLMIN(app=app)
 
 json_resp = dict(
@@ -53,7 +53,6 @@ def client():
 def test_html_minify(client):
     """ testing HTML minified response """
     resp = client.get('/').data
-    print(resp)
     assert b'<html> <style>.h{width:3em}</style><body>\
  <h1 style="width:3em"> HTML </h1> </body> </html>' == resp
 
