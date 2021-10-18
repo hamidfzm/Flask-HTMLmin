@@ -15,9 +15,10 @@ class HTMLMIN(object):
         default_options = {
             'remove_comments': True,
             'reduce_empty_attributes': True,
-            'remove_optional_attribute_quotes': False,
-            'disable_css_min': False
+            'remove_optional_attribute_quotes': False
         }
+
+        self.disable_css_min = kwargs.get('disable_css_min', False)
         default_options.update(kwargs)
         self.opts = default_options
 
@@ -55,7 +56,7 @@ class HTMLMIN(object):
                 return response
 
             response.direct_passthrough = False
-            if self.opts.get('disable_css_min'):
+            if self.disable_css_min:
                 response.set_data(
                     self._html_minify.minify(response.get_data(as_text=True))
                 )
