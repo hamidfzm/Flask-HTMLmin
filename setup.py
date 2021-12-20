@@ -48,6 +48,4 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing :: Markup :: HTML',
     ],
-    setup_requires=['pytest-runner'],
-    tests_require=['pytest']
 )

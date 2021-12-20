@@ -397,14 +397,6 @@
             "index": "pypi",
             "version": "==5.4.1"
         },
-        "pytest-runner": {
-            "hashes": [
-                "sha256:5534b08b133ef9a5e2c22c7886a8f8508c95bb0b0bdc6cc13214f269c3c70d51",
-                "sha256:96c7e73ead7b93e388c5d614770d2bae6526efd997757d3543fe17b557a0942b"
-            ],
-            "index": "pypi",
-            "version": "==5.2"
-        },
         "readme-renderer": {
             "hashes": [
                 "sha256:63b4075c6698fcfa78e584930f07f39e05d46f3ec97f65006e430b595ca6348c",
