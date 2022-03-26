@@ -42,7 +42,7 @@ app = Flask(__name__)
 app.config['MINIFY_HTML'] = True
 
 htmlmin = HTMLMIN(app)
-# or you can use HTMLMIN.init_app(app)
+# or you can use HTMLMIN().init_app(app)
 # pass additional parameters to htmlmin
 # HTMLMIN(app, **kwargs)
 # example:
