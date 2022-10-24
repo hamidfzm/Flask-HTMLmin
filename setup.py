@@ -14,7 +14,7 @@ with open('README.md', 'r') as fh:
 
 setup(
     name='Flask-HTMLmin',
-    version='2.2.0',
+    version='2.2.1',
     url='https://github.com/hamidfzm/Flask-HTMLmin',
     license='BSD-3-Clause',
     author='Hamid FzM',
