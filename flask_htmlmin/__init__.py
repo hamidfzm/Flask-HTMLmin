@@ -18,7 +18,7 @@ class HTMLMIN(object):
             'remove_optional_attribute_quotes': False
         }
 
-        self.disable_css_min = kwargs.get('disable_css_min', False)
+        self.disable_css_min = kwargs.pop('disable_css_min', False)
         default_options.update(kwargs)
         self.opts = default_options
 
