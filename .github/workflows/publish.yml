@@ -25,8 +25,8 @@ jobs:
 
       - name: Lint with flake8
         run: |
-          flake8 . --count --show-source --statistics
-          flake8 . --count --exit-zero --statistics
+          pipenv run flake8 . --count --show-source --statistics
+          pipenv run flake8 . --count --exit-zero --statistics
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
