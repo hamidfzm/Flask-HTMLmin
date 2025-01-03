@@ -12,9 +12,10 @@ flake8 = "*"
 coverage = "*"
 
 [packages]
-flask = "*"
-htmlmin = "*"
-cssmin = "*"
+flask = ">=3.0.0"
+cssmin = " 0.2.0"
+flask-htmlmin = {file = ".", editable = true}
+htmlmin2 = "*"
 
 [requires]
-python_version = "3.7"
+python_version = ">=3.12"
