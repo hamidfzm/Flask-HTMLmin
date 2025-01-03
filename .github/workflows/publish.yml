@@ -8,20 +8,20 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v4
 
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v3
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.7
+          python-version: 3.12
 
       - name: Install dependencies
         run: |
           pip install pipenv
-          pipenv install --python 3.7 --dev
+          pipenv install --python 3.12 --dev
 
       - name: Lint with flake8
         run: |
@@ -29,7 +29,7 @@ jobs:
           pipenv run flake8 . --count --exit-zero --statistics
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
 
       - name: Generate distribution 📦for PyPI
         run: |

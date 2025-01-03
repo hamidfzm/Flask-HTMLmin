@@ -57,7 +57,7 @@ def test_html_minify(client):
  <h1 style="width:3em"> HTML </h1> </body> </html>' == resp
 
 
-def test_json_unminifed(client):
+def test_json_unminified(client):
     """ testing unminified Json response """
     resp = client.get('/json').data
     assert json_resp == loads(resp)
