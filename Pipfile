@@ -4,12 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "*"
 pytest-cov = "*"
 twine = "*"
 wheel = "*"
 flake8 = "*"
 coverage = "*"
+pytest = "*"
 
 [packages]
 flask = ">=3.0.0"
