@@ -14,7 +14,7 @@ with open('README.md', 'r') as fh:
 
 setup(
     name='Flask-HTMLmin',
-    version='3.0.0',
+    version='3.0.1',
     url='https://github.com/hamidfzm/Flask-HTMLmin',
     license='BSD-3-Clause',
     author='Hamid FzM',
@@ -32,17 +32,18 @@ setup(
         'htmlmin2',
         'cssmin'
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.11',
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing :: Markup :: HTML',
