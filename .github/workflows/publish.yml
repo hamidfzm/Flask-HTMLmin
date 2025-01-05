@@ -5,9 +5,12 @@ on:
     tags:
       - v*
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   build:
-
     runs-on: ubuntu-24.04
 
     steps:
@@ -29,7 +32,7 @@ jobs:
           pipenv run flake8 . --count --exit-zero --statistics
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@1e68e06f1dbfde0e4cefc87efeba9e4643565303
 
       - name: Generate distribution 📦for PyPI
         run: |
@@ -37,6 +40,6 @@ jobs:
           python setup.py sdist bdist_wheel
 
       - name: Publish distribution to PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@67339c736fd9354cd4f8cb0b744f2b82a74b5c70
         with:
           password: ${{ secrets.PYPI_PASSWORD }}

@@ -6,9 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   build:
-
     runs-on: ubuntu-24.04
     strategy:
       matrix:
@@ -38,4 +41,4 @@ jobs:
           pipenv run pytest --cov=flask_htmlmin --cov-report=xml
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@1e68e06f1dbfde0e4cefc87efeba9e4643565303
